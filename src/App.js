@@ -1,4 +1,4 @@
-
+import './App.sass';
 
 function App() {
   return (
