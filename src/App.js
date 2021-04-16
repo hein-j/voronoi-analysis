@@ -7,10 +7,9 @@ import {Delaunay} from 'd3';
 import findFinite from './helpers/findFinite';
 import getAreaInfo from './helpers/getAreaInfo';
 import findSkewnessAndCoefficient from './helpers/findSkewnessAndCoefficient';
-import Coefficient from './coefficient/Coefficient';
 import Graph from './graph/Graph';
 import Diagram from './diagram/Diagram';
-import Skewness from './skewness/Skewness';
+import Calculations from './calculations/Calculations';
 
 
 function App() {
@@ -43,8 +42,8 @@ function App() {
     <div className="container">
       <div className="centered-container">
         <Diagram positions={positionsObj.positions} apices={positionsObj.apices} />
-        <Skewness skewness={positionsObj.skewness} />
-        <Coefficient coefficient={positionsObj.coefficient} />
+        <Calculations name={"Skewness"} value={positionsObj.skewness} />
+        <Calculations name={"Coefficient"} value={positionsObj.coefficient} />
         <Graph areas={positionsObj.areas} />
       </div>
       <Footer callBack={changePositions} />
