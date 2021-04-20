@@ -11,18 +11,34 @@ function Footer (props) {
   const [uploadedFile, setUploadedFile] = useState('');
 
   function handleFile (e) {
-    props.closePopup();
-    const input = e.target;
-    if (!input.files.length) {
-      return;
+    try {
+      props.closePopup();
+      const input = e.target;
+      if (!input.files.length) {
+        return;
+      }
+      let file = URL.createObjectURL(input.files[0]);
+      setUploadedFile(input.files[0]['name']);
+      csv(file).then((data) => {
+        URL.revokeObjectURL(file);
+        let positions = data.map((obj) => {
+          const x = parseFloat(obj.x);
+          const y = parseFloat(obj.y);
+          if (Number.isNaN(x) || Number.isNaN(y) || x === Infinity || y === Infinity) {
+            throw 'Invalid input: Please make sure the first record is a header with the field names "x" and "y" exactly. The rest should be a pair of real numbers (e.g. 1.23, 10.5).'
+          }
+          return [x, y];
+        });
+        props.positionsCallBack(positions);
+      })
+      .catch(e => {
+        alert(e);
+        window.location.reload();
+      })
+    } catch {
+      alert('Failed to upload file. Please try again.');
+      window.location.reload();
     }
-    let file = URL.createObjectURL(input.files[0]);
-    setUploadedFile(input.files[0]['name']);
-    csv(file).then((data) => {
-      URL.revokeObjectURL(file);
-      let positions = data.map((obj) => [parseFloat(obj.x), parseFloat(obj.y)]);
-      props.positionsCallBack(positions);
-    });
   }
 
   const fileInput = useRef(null);

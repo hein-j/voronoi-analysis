@@ -22,6 +22,9 @@ function App() {
     const voronoi = Delaunay.from(positions).voronoi([apices.min[0] - buffer, apices.min[1] - buffer, apices.max[0] + buffer, apices.max[1] + buffer]);
     const isFinite = findFinite(voronoi);
     const areasInfo = getAreaInfo(voronoi, isFinite);
+    if (areasInfo.areas.length === 0) {
+      throw 'There are no finite cells to calculate areas for. Please try adding more coordinates.'
+    }
     const {skewness, coefficient} = findSkewnessAndCoefficient(areasInfo, voronoi, isFinite);
     return {
       positions: positions,
@@ -33,8 +36,13 @@ function App() {
   }
 
   function changePositions(positions) {
-    const newObj = processPositions(positions);
-    setPositionsObj(newObj);
+    try {
+      const newObj = processPositions(positions);
+      setPositionsObj(newObj);
+    } catch (e) {
+        alert (e);
+        window.location.reload();
+    }
   }
   
   const [positionsObj, setPositionsObj] = useState(processPositions(getInitialPositions()));
@@ -62,7 +70,6 @@ function App() {
     })
   }
 
-
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
       if (e.key !== 'Escape') {
@@ -78,7 +85,7 @@ function App() {
   const GraphComp = <Graph areas={positionsObj.areas} />;
 
   return (
-    <div className="container">
+    <div className='container'>
       <Popup obj={popupObj} close={closePopup} />
       <div className="centered-container">
         <div className="cell" onClick={() => openPopup(DiagramComp)}>
