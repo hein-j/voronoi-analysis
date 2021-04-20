@@ -29,6 +29,11 @@ function Footer (props) {
     fileInput.current.click();
   }
 
+  function helpClicked(e) {
+    e.preventDefault();
+    props.openPopup(<Information />);
+  }
+
 
   return (
     <div className="footer">
@@ -37,7 +42,7 @@ function Footer (props) {
       <button onClick={clickFileInput}>Upload csv file</button>
       <span>{uploadedFile}</span>
       </div>
-      <input id="help-button" type="image" src={help} alt="help" onClick={() => props.openPopup(<Information />)}/>
+      <input id="help-button" type="image" src={help} alt="help" onClick={helpClicked}/>
     </div>
   )
 
