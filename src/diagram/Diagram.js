@@ -63,7 +63,7 @@ function Diagram (props) {
       .from(tempPositions)
       .voronoi([0, 0, width, height]);
   
-    const circle = svg.append("g")
+    svg.append("g")
       .selectAll("circle")
       .data(renderPositions)
       .join("circle")

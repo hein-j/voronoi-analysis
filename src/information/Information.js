@@ -3,6 +3,7 @@ import coefficient from '../assets/coefficient.png';
 import skewness from '../assets/skewness.png';
 import './Information.sass';
 import download from '../assets/download.svg';
+import exampleCSV from '../assets/voronoi-analyzer-example.csv';
 
 function Information () {
 
@@ -15,7 +16,7 @@ function Information () {
           Upload a CSV file of the coordinates. The first record must be a header, and it must contain the field names "x" and "y" exactly.
         </span>
         <span>
-          <a href="" download><img className="icon" src={download} alt="download example csv"/></a>Download example CSV
+          <a href={exampleCSV} download="voronoi-analyzer-example"><img className="icon" src={download} alt="download example csv"/></a>Download example CSV
         </span>
         </li>
         <li>
@@ -27,7 +28,7 @@ function Information () {
       </ol>
       <h1>Info</h1>
       <ul>
-        <li>Welcome to Voronoi Analyzer, an app that generates the <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank">Voronoi diagram</a> of a given set of coordinates and performs statistical analysis on the areas of the resulting polygons. You can use it, for instance, to examine the density of cells, nuclei, etc. in micrographs. It is not, however, intended to substitute the likes of MATLAB.</li>
+        <li>Welcome to Voronoi Analyzer, an app that generates the <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank" rel="noreferrer">Voronoi diagram</a> of a given set of coordinates and performs statistical analysis on the areas of the resulting polygons. You can use it, for instance, to examine the density of cells, nuclei, etc. in micrographs. It is not, however, intended to substitute the likes of MATLAB.</li>
         <li>Cells around the edges are artificially clipped for display, but not for calculations: Infinite cells are not factored into the histogram, skewness, or coefficient.</li>
         <li>Negative coordinates are welcome.</li>
         <li className="formula-li">
@@ -41,7 +42,7 @@ function Information () {
           <span>where σ<sub>x</sub> is the standard deviation of all the domains, and ā and σ<sub>a<sub>i</sub></sub> are the mean and the standard deviation of the size of neighboring domains of i<sup>th</sup> domain, respectively.<span className="asterisk"> *</span></span>
         </li>
         <li>
-          Check out the open source <a target="_blank" href="https://github.com/hein-j/voronoi-analyzer">Github repo</a>. Issues and pull requests welcome.
+          Check out the open source <a target="_blank" rel="noreferrer" href="https://github.com/hein-j/voronoi-analyzer">Github repo</a>. Issues and pull requests welcome.
         </li>
       </ul>
       <h1>
@@ -49,10 +50,10 @@ function Information () {
       </h1>
       <ul>
         <li>
-          Big thanks to the <a href="https://d3js.org" target="_blank">D3.js</a> library for the data visualization tools.
+          Big thanks to the <a href="https://d3js.org" rel="noreferrer" target="_blank">D3.js</a> library for the data visualization tools.
         </li>
         <li>
-          <span className="asterisk">*</span> — The formulae for skewness and coefficient come from <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/26977812/">this open-access publication</a> in ophthalmology.
+          <span className="asterisk">*</span> — The formulae for skewness and coefficient come from <a target="_blank" rel="noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/26977812/">this open-access publication</a> in ophthalmology.
         </li>
       </ul>
     </div>
