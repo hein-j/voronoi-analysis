@@ -6,8 +6,9 @@
   bottom: 0
   left: 0
   width: 100%
+  min-width: App.$min-width
   display: grid
-  grid-template-columns: repeat(2, auto)
+  grid-template-columns: repeat(3, minmax(0, 1fr))
   padding: 10px 20px
   height: App.$footer-height
   align-items: center
@@ -31,15 +32,23 @@
     border-radius: 5px
     padding: 8px
     display: block
+    width: max-content
 
   span
-    max-width: 1000px
+    max-width: 100%
     display: block
     overflow: hidden
     text-overflow: ellipsis
+    white-space: nowrap
 
-
+#download-button
+  justify-self: center
+  width: 30px
 
 #help-button
   justify-self: end
   width: 30px
+
+@media(max-width: 540px)
+  #displayed-file-input > span
+    display: none

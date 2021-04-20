@@ -2,6 +2,7 @@ $primary-color: pink
 $font: 'Roboto', sans-serif
 $footer-height: 52px
 $cell-border: 1px solid gray
+$min-width: 320px
 
 %graphic-container
   width: 100%
@@ -49,7 +50,7 @@ button
     grid-template-columns: minmax(0, 1fr)
     grid-template-rows: repeat(4, auto)
     width: 100%
-    min-width: 320px
+    min-width: $min-width
     height: max-content
     min-height: max-content
 

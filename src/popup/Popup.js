@@ -1,6 +1,6 @@
 import './Popup.sass';
 import {useEffect, useRef} from 'react';
-import close from './close.svg';
+import close from '../assets/close.svg';
 
 function Popup (props) {
   const {isOpen, child} = props.obj;

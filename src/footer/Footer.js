@@ -1,8 +1,10 @@
 import './Footer.sass';
-import help from './help.svg';
+import help from '../assets/help.svg';
 import {csv} from 'd3';
 import Information from '../information/Information';
+import footerDownload from '../assets/footer-download.svg';
 import {useState, useRef} from 'react';
+import Downloads from '../downloads/Downloads';
 
 function Footer (props) {
 
@@ -29,20 +31,24 @@ function Footer (props) {
     fileInput.current.click();
   }
 
-  function helpClicked(e) {
+  function buttonClicked(e) {
     e.preventDefault();
-    props.openPopup(<Information />);
+    let child = <Downloads />;
+    if (e.target.alt === 'help') {
+      child = <Information />
+    }
+    props.openPopup(child);
   }
-
 
   return (
     <div className="footer">
       <input ref={fileInput} id="hidden-file-input" type="file" accept=".csv" onChange={handleFile}/>
       <div id="displayed-file-input">
-      <button onClick={clickFileInput}>Upload csv file</button>
-      <span>{uploadedFile}</span>
+        <button onClick={clickFileInput}>Upload csv file</button>
+        <span>{uploadedFile}</span>
       </div>
-      <input id="help-button" type="image" src={help} alt="help" onClick={helpClicked}/>
+      <input id="download-button" type="image" src={footerDownload} alt="download" onClick={buttonClicked}/>
+      <input id="help-button" type="image" src={help} alt="help" onClick={buttonClicked}/>
     </div>
   )
 

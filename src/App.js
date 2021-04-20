@@ -11,7 +11,7 @@ import Graph from './graph/Graph';
 import Diagram from './diagram/Diagram';
 import Calculations from './calculations/Calculations';
 import Popup from './popup/Popup';
-import { e } from 'mathjs';
+import Downloads from './downloads/Downloads';
 
 function App() {
   
@@ -45,9 +45,13 @@ function App() {
   })
 
   function openPopup (child) {
+    let childEl = child;
+    if (childEl.type.name === "Downloads") {
+      childEl = <Downloads positionsObj={positionsObj} />
+    }
     setPopupObj({
       isOpen: true,
-      child: child
+      child: childEl
     })
   }
 
