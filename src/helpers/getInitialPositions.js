@@ -10,7 +10,7 @@ function getInitialPositions () {
     }
   }
 
-  populatePositions(30, 100, 450);
+  populatePositions(70, 200, 400);
   populatePositions(400, 1000, 0);
 
   return positions;
