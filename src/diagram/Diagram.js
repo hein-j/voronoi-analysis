@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import {useEffect} from "react";
+import './Diagram.sass';
 
 function Diagram (props) {
 
@@ -32,8 +33,8 @@ function Diagram (props) {
   const renderMax = Math.max(renderMaxes[0], renderMaxes[1]);
 
   // find factor to enlarge or shrink by
-  const width = 600;
-  const height = 600;
+  const width = 1000;
+  const height = 1000;
   const factor = width / renderMax;
 
   renderPositions = renderPositions.map((position) => {
@@ -46,13 +47,14 @@ function Diagram (props) {
   // have first three positions in beginning of animation
   let tempPositions = renderPositions.slice(0,3);
 
-  // at DidMount
-  useEffect(()=> {
+  useEffect(renderDiagram, [positions, apices]);
+  
+  function renderDiagram () {
     // big help from https://observablehq.com/@d3/circle-dragging-iii?collection=@d3/d3-delaunayv
-
-    document.getElementById('diagram-container').innerHTML = '';
-
-    const svg = d3.select("#diagram-container")
+  
+    document.querySelector(".diagram-container").innerHTML = '';
+  
+    const svg = d3.select(".diagram-container")
     .append("svg")
       .attr("viewBox", [0, 0, width, height])
       .attr("stroke-width", 2);
@@ -91,10 +93,10 @@ function Diagram (props) {
         update(tempPositions)
       },i * 2)
     }
-  });
+  }
 
   return (
-    <div id="diagram-container"></div>
+    <div className="diagram-container"></div>
   )
 }
 

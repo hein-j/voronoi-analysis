@@ -1,6 +1,6 @@
 import './App.sass';
 import Footer from './footer/Footer';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import getInitialPositions from './helpers/getInitialPositions';
 import getApices from './helpers/getApices';
 import {Delaunay} from 'd3';
@@ -10,7 +10,8 @@ import findSkewnessAndCoefficient from './helpers/findSkewnessAndCoefficient';
 import Graph from './graph/Graph';
 import Diagram from './diagram/Diagram';
 import Calculations from './calculations/Calculations';
-
+import Popup from './popup/Popup';
+import { e } from 'mathjs';
 
 function App() {
   
@@ -38,15 +39,58 @@ function App() {
   
   const [positionsObj, setPositionsObj] = useState(processPositions(getInitialPositions()));
 
+  const [popupObj, setPopupObj] = useState({
+    isOpen:false,
+    child: <div></div>
+  })
+
+  function openPopup (child) {
+    setPopupObj({
+      isOpen: true,
+      child: child
+    })
+  }
+
+  function closePopup () {
+    setPopupObj({
+      isOpen: false,
+      child: <div></div>
+    })
+  }
+
+
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.key !== 'Escape') {
+        return;
+      }
+      closePopup();
+    })
+  }, [])
+
+  const DiagramComp = <Diagram positions={positionsObj.positions} apices={positionsObj.apices}/>;
+  const SkewnessComp = <Calculations name={"Skewness"} value={positionsObj.skewness} />;
+  const CoefficientComp = <Calculations name={"Coefficient"} value={positionsObj.coefficient} />;
+  const GraphComp = <Graph areas={positionsObj.areas} />;
+
   return (
     <div className="container">
+      <Popup obj={popupObj} close={closePopup} />
       <div className="centered-container">
-        <Diagram positions={positionsObj.positions} apices={positionsObj.apices} />
-        <Calculations name={"Skewness"} value={positionsObj.skewness} />
-        <Calculations name={"Coefficient"} value={positionsObj.coefficient} />
-        <Graph areas={positionsObj.areas} />
+        <div className="cell" onClick={() => openPopup(DiagramComp)}>
+          {DiagramComp}
+        </div>
+        <div className="cell" onClick={() => openPopup(SkewnessComp)}>
+          {SkewnessComp}
+        </div>
+        <div className="cell" onClick={() => openPopup(CoefficientComp)}>
+          {CoefficientComp}
+        </div>
+        <div className="cell" onClick={() => openPopup(GraphComp)}>
+          {GraphComp}
+        </div>
       </div>
-      <Footer callBack={changePositions} />
+      <Footer positionsCallBack={changePositions} openPopup={openPopup} closePopup={closePopup}/>
     </div>
   );
 }

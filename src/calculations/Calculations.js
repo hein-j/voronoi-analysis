@@ -1,4 +1,5 @@
 import CountUp from 'react-countup';
+import './Calculations.sass';
 
 function Calculations (props) {
   const {name, value} = props;
@@ -14,14 +15,13 @@ function Calculations (props) {
   const decimals = countDecimals(value);
 
   return (
-    <div>
-      <div>{name}</div>
-      <CountUp
+    <div className="calculations-container">
+      <span className="value-name">{name}</span>
+      <CountUp className="value"
         start={0}
         end={value}
-        duration={7}
+        duration={1}
         decimals={decimals}
-        onEnd={() => console.log('flash')}
         />
     </div>
   )

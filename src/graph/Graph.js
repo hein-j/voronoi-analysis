@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import {useEffect} from "react";
+import './Graph.sass';
 
 
 function Graph (props) {
@@ -46,36 +47,39 @@ function Graph (props) {
     maxPercentage = Math.max(maxPercentage, obj.percentage);
   });
 
+  useEffect(renderGraph, [areas]);
   
-  useEffect(() => {
+  function renderGraph () {
     // big help from https://www.d3-graph-gallery.com/graph/barplot_animation_start.html 
     // help with labels from https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e 
     
     const color = "#69b3a2";
     
     // set the dimensions and margins of the graph
-    const margin = {top: 10, right: 30, bottom: 90, left: 70};
+    const margin = {top: 10, right: 10, bottom: 60, left: 50};
     const width = 500 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
-
-    document.getElementById("graph-container").innerHTML = '';
-
-  // append the svg object to the body of the page
-  const svg = d3.select("#graph-container")
-    .append("svg")
-      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
-      .attr("preserveAspectRatio", "xMinYMin meet")
-    .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+    const fontSize = 14 + 5;
+  
+    document.querySelector('.graph-container').innerHTML = '';
+  
+    // append the svg object to the body of the page
+    const svg = d3.select(".graph-container")
+      .append("svg")
+        .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+        //.attr("preserveAspectRatio", "xMinYMin meet")
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
   
     // X axis
     const x = d3.scaleLinear()
       .range([ 0, width ])
-      .domain([0, maxArea])
+      .domain([0, maxArea + intervalSpacing])
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
+      .append("path")
       .selectAll("text")
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
@@ -84,7 +88,7 @@ function Graph (props) {
     svg.append("text")             
     .attr("transform",
           "translate(" + (width/2) + " ," + 
-                          (height + margin.top + 50) + ")")
+                          (height + margin.top + margin.bottom - fontSize) + ")")
     .style("text-anchor", "middle")
     .text("Area");
     
@@ -98,7 +102,7 @@ function Graph (props) {
     // text label for the y axis
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
+        .attr("y", 0 - 30 - fontSize)
         .attr("x",0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -115,6 +119,7 @@ function Graph (props) {
         // no bar at the beginning thus:
         .attr("height", function(d) { return height - y(0); }) // always equal to 0
         .attr("y", function(d) { return y(0); })
+        .attr("transform", "translate(5, 0)")
     
     // Animation
     svg.selectAll("rect")
@@ -122,11 +127,11 @@ function Graph (props) {
       .duration(800)
       .attr("y", function(d) { return y(d.percentage); })
       .attr("height", function(d) { return height - y(d.percentage); })
-      .delay(function(d,i){return(i*50)})
-  });
+      .delay(function(d,i){return(i*10)})
+  }
 
   return (
-    <div id="graph-container"></div>
+    <div className="graph-container"></div>
   )
 }
 

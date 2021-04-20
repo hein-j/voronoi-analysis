@@ -1,30 +1,45 @@
+@use '../App'
+
 .footer
-  background-color: pink
+  background-color: white
   position: fixed
   bottom: 0
   left: 0
   width: 100%
-  height: 70px
-  display: grid
-  justify-items: center
-  align-items: center
-  overflow-x: auto
-
-.footer-content
-  background-color: lightgreen
   display: grid
   grid-template-columns: repeat(2, auto)
+  padding: 10px 20px
+  height: App.$footer-height
   align-items: center
-  width: 100%
-  min-width: 300px
+  box-shadow: 0 -1px 10px rgba(0,0,0,.3)
 
-  input
+#hidden-file-input
+  display: none
+
+#displayed-file-input
+  justify-self: start
+  display: grid
+  grid-template-columns: repeat(2, auto)
+  grid-gap: 15px
+  align-items: center
+  font-size: 14px
+
+  button
+    font-family: App.$font
+    background-color: hsl(0,0,90)
+    border: none
+    border-radius: 5px
+    padding: 8px
     display: block
 
-#file-input
-  background-color: yellow
-  justify-self: start
+  span
+    max-width: 1000px
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+
+
 
 #help-button
   justify-self: end
-  background-color: lightblue
+  width: 30px
