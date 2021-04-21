@@ -58,7 +58,7 @@ function Information () {
           <span className="asterisk">*</span> — The formulae for skewness and coefficient come from <a target="_blank" rel="noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/26977812/">this open-access publication</a> in ophthalmology.
         </li>
         <li>
-          More citations can be found in the source code itself.
+          More citations can be found as comments in the source code.
         </li>
       </ul>
     </div>
