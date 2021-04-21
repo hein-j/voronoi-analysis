@@ -10,7 +10,7 @@ function Information () {
   // formulae formatted through Mathcha - https://www.mathcha.io/ 
 
   return (
-    <div className="information">
+    <div className="information-container">
       <h1>Usage</h1>
       <ol>
         <li className="upload-instructions">
