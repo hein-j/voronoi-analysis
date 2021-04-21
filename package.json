@@ -15,6 +15,7 @@
     "sass": "^1.32.11",
     "web-vitals": "^1.1.1"
   },
+  "homepage": "https://voronoianalyzer.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,7 +23,6 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build"
   },
-  "homepage": "https://hein-j.github.io/voronoi-analyzer/",
   "eslintConfig": {
     "extends": [
       "react-app",
