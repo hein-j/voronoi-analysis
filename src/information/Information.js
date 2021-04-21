@@ -18,7 +18,7 @@ function Information () {
           Upload a CSV file of the coordinates. The first record must be a header, and it must contain the field names "x" and "y" exactly.
         </span>
         <span>
-          <a href={exampleCSV} download="voronoi-analyzer-example"><img className="icon" src={download} alt="download example csv"/></a>Download example CSV
+          <a href={exampleCSV} download="voronoi-analyzer-example.csv"><img className="icon" src={download} alt="download example csv"/></a>Download example CSV
         </span>
         </li>
         <li>

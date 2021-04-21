@@ -54,23 +54,23 @@ function Downloads(props) {
   return (
     <div className="downloads-container">
       <div className="row">
-        <a download="diagram" href={diagramURL}><img src={download} alt="download diagram" /></a>
+        <a download="diagram.svg" href={diagramURL}><img src={download} alt="download diagram" /></a>
         <span>Diagram</span><span>svg</span>
       </div>
       <div className="row">
-      <a download="histogram" href={histogramURL}><img src={download} alt="download histogram" /></a>
+      <a download="histogram.svg" href={histogramURL}><img src={download} alt="download histogram" /></a>
         <span>Histogram</span><span>svg</span>
       </div>
       <div className="row">
-      <a download="areas" href={areasURL}><img src={download} alt="download areas" /></a>
+      <a download="areas.csv" href={areasURL}><img src={download} alt="download areas" /></a>
         <span>Areas</span><span>csv</span>
       </div>
       <div className="row">
-      <a download="coefficient" href={coefficientURL}><img src={download} alt="download coefficient" /></a>
+      <a download="coefficient.csv" href={coefficientURL}><img src={download} alt="download coefficient" /></a>
         <span>Coefficient</span><span>csv</span>
       </div>
       <div className="row">
-      <a download="skewness" href={skewnessURL}><img src={download} alt="download skewness" /></a>
+      <a download="skewness.csv" href={skewnessURL}><img src={download} alt="download skewness" /></a>
         <span>Skewness</span><span>csv</span>
       </div>
     </div>
