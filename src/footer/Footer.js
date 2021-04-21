@@ -25,7 +25,7 @@ function Footer (props) {
           const x = parseFloat(obj.x);
           const y = parseFloat(obj.y);
           if (Number.isNaN(x) || Number.isNaN(y) || x === Infinity || y === Infinity) {
-            throw 'Invalid input: Please make sure the first record is a header with the field names "x" and "y" exactly. The rest should be a pair of real numbers (e.g. 1.23, 10.5).'
+            throw new Error('Invalid input: Please make sure the first record is a header with the field names "x" and "y" exactly. The rest should be a pair of real numbers (e.g. 1.23, 10.5).')
           }
           return [x, y];
         });
@@ -49,11 +49,11 @@ function Footer (props) {
 
   function buttonClicked(e) {
     e.preventDefault();
-    let child = <Downloads />;
     if (e.target.alt === 'help') {
-      child = <Information />
+      props.openPopup(<Information />);
+      return;
     }
-    props.openPopup(child);
+    props.openPopup(<Downloads />, "Downloads");
   }
 
   return (

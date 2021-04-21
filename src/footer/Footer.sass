@@ -6,7 +6,6 @@
   bottom: 0
   left: 0
   width: 100%
-  min-width: App.$min-width
   display: grid
   grid-template-columns: repeat(3, minmax(0, 1fr))
   padding: 10px 20px
@@ -52,3 +51,8 @@
 @media(max-width: 540px)
   #displayed-file-input > span
     display: none
+
+@media(max-width: 295px)
+  .footer
+    grid-template-columns: repeat(3, auto)
+    min-width: 204px
