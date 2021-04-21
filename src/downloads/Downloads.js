@@ -10,7 +10,7 @@ function Downloads(props) {
       const svg = document.querySelector(selector);
       svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");  
       const svgData = svg.outerHTML;
-      const svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+      const svgBlob = new Blob([svgData], {type:"image/svg+xml"});
       return URL.createObjectURL(svgBlob);  
     } catch {
       alert ('Couldn\'t load the SVGs. Check your browser security settings.');
