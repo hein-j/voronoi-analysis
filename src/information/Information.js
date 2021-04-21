@@ -7,6 +7,8 @@ import exampleCSV from '../assets/voronoi-analyzer-example.csv';
 
 function Information () {
 
+  // formulae formatted through Mathcha - https://www.mathcha.io/ 
+
   return (
     <div className="information">
       <h1>Usage</h1>
@@ -56,7 +58,7 @@ function Information () {
           <span className="asterisk">*</span> — The formulae for skewness and coefficient come from <a target="_blank" rel="noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/26977812/">this open-access publication</a> in ophthalmology.
         </li>
         <li>
-          Formulae formatted through <a href="https://www.mathcha.io" rel="noreferrer" target="_blank">Mathcha</a>.
+          More citations can be found in the source code itself.
         </li>
       </ul>
     </div>
