@@ -23,7 +23,7 @@ function App() {
     const isFinite = findFinite(voronoi);
     const areasInfo = getAreaInfo(voronoi, isFinite);
     if (areasInfo.areas.length === 0) {
-      throw 'There are no finite cells to calculate areas for. Please try adding more coordinates.'
+      throw new Error('There are no finite cells to calculate areas for. Please try adding more coordinates.')
     }
     const {skewness, coefficient} = findSkewnessAndCoefficient(areasInfo, voronoi, isFinite);
     return {
@@ -52,9 +52,9 @@ function App() {
     child: <div></div>
   })
 
-  function openPopup (child) {
+  function openPopup (child, childTypeName = "notDownloads") {
     let childEl = child;
-    if (childEl.type.name === "Downloads") {
+    if (childTypeName === "Downloads") {
       childEl = <Downloads positionsObj={positionsObj} />
     }
     setPopupObj({
