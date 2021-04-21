@@ -21,7 +21,7 @@ function Calculations (props) {
         start={0}
         end={value}
         duration={1}
-        decimals={100}
+        decimals={decimals}
         />
     </div>
   )
