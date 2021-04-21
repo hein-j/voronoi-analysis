@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.50b62d48.chunk.css",
-    "main.js": "/static/js/main.0e54a19a.chunk.js",
-    "main.js.map": "/static/js/main.0e54a19a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4fd6cbd4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4fd6cbd4.js.map",
-    "static/js/2.a9b2d791.chunk.js": "/static/js/2.a9b2d791.chunk.js",
-    "static/js/2.a9b2d791.chunk.js.map": "/static/js/2.a9b2d791.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.50b62d48.chunk.css.map": "/static/css/main.50b62d48.chunk.css.map",
-    "static/js/2.a9b2d791.chunk.js.LICENSE.txt": "/static/js/2.a9b2d791.chunk.js.LICENSE.txt",
-    "static/media/close.244b6687.svg": "/static/media/close.244b6687.svg",
-    "static/media/coefficient.f07f7e6d.svg": "/static/media/coefficient.f07f7e6d.svg",
-    "static/media/download.a3498030.svg": "/static/media/download.a3498030.svg",
-    "static/media/footer-download.806ab3cb.svg": "/static/media/footer-download.806ab3cb.svg",
-    "static/media/help.d27c6caa.svg": "/static/media/help.d27c6caa.svg",
-    "static/media/skewness.d4c26804.svg": "/static/media/skewness.d4c26804.svg",
-    "static/media/voronoi-analyzer-example.c3f96403.csv": "/static/media/voronoi-analyzer-example.c3f96403.csv"
+    "main.css": "/voronoi-analyzer/static/css/main.50b62d48.chunk.css",
+    "main.js": "/voronoi-analyzer/static/js/main.71646f2d.chunk.js",
+    "main.js.map": "/voronoi-analyzer/static/js/main.71646f2d.chunk.js.map",
+    "runtime-main.js": "/voronoi-analyzer/static/js/runtime-main.7a6e734e.js",
+    "runtime-main.js.map": "/voronoi-analyzer/static/js/runtime-main.7a6e734e.js.map",
+    "static/js/2.a9b2d791.chunk.js": "/voronoi-analyzer/static/js/2.a9b2d791.chunk.js",
+    "static/js/2.a9b2d791.chunk.js.map": "/voronoi-analyzer/static/js/2.a9b2d791.chunk.js.map",
+    "index.html": "/voronoi-analyzer/index.html",
+    "static/css/main.50b62d48.chunk.css.map": "/voronoi-analyzer/static/css/main.50b62d48.chunk.css.map",
+    "static/js/2.a9b2d791.chunk.js.LICENSE.txt": "/voronoi-analyzer/static/js/2.a9b2d791.chunk.js.LICENSE.txt",
+    "static/media/close.244b6687.svg": "/voronoi-analyzer/static/media/close.244b6687.svg",
+    "static/media/coefficient.f07f7e6d.svg": "/voronoi-analyzer/static/media/coefficient.f07f7e6d.svg",
+    "static/media/download.a3498030.svg": "/voronoi-analyzer/static/media/download.a3498030.svg",
+    "static/media/footer-download.806ab3cb.svg": "/voronoi-analyzer/static/media/footer-download.806ab3cb.svg",
+    "static/media/help.d27c6caa.svg": "/voronoi-analyzer/static/media/help.d27c6caa.svg",
+    "static/media/skewness.d4c26804.svg": "/voronoi-analyzer/static/media/skewness.d4c26804.svg",
+    "static/media/voronoi-analyzer-example.c3f96403.csv": "/voronoi-analyzer/static/media/voronoi-analyzer-example.c3f96403.csv"
   },
   "entrypoints": [
-    "static/js/runtime-main.4fd6cbd4.js",
+    "static/js/runtime-main.7a6e734e.js",
     "static/js/2.a9b2d791.chunk.js",
     "static/css/main.50b62d48.chunk.css",
-    "static/js/main.0e54a19a.chunk.js"
+    "static/js/main.71646f2d.chunk.js"
   ]
 }
