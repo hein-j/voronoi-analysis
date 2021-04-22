@@ -128,6 +128,9 @@ function Graph (props) {
       .attr("y", function(d) { return y(d.percentage); })
       .attr("height", function(d) { return height - y(d.percentage); })
       .delay(function(d,i){return(i*10)})
+
+    // render axes on top
+    d3.selectAll("rect").lower();
   }
 
   return (
