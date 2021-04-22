@@ -11,6 +11,8 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
   
   // accumulators for coefficient
   let coefficientSigma = 0;
+
+  let previousNonZeroStdOfAreasOfNeighbors = 1;
   
   // calculate the sigmas
   for (let i=0; i < n; i++) {
@@ -30,7 +32,12 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
       totalAreaOfNeighbors+= area;
     })
     const avgAreaOfNeighbors = totalAreaOfNeighbors / neighbors.length;
-    const stdOfAreasOfNeighbors = std(areasOfNeighbors);
+    let stdOfAreasOfNeighbors = std(areasOfNeighbors);
+    // if there is only one finite neighbor
+    if (stdOfAreasOfNeighbors === 0) {
+      stdOfAreasOfNeighbors = previousNonZeroStdOfAreasOfNeighbors;
+    }
+    previousNonZeroStdOfAreasOfNeighbors = stdOfAreasOfNeighbors;
     coefficientSigma += (avgAreaOfNeighbors / stdOfAreasOfNeighbors);
   }
   

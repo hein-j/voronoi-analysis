@@ -41,7 +41,7 @@ function Information () {
         <li className="formula-li">
           <span>The coefficient of clustering is determined by the ratio between the global coefficient of variance and the average local coefficient of variance in domain sizes. The formula is:</span>
           <img src={coefficient} alt="c=\frac{n\overline{x}|𝜎\index{x} \sum{n|i=1} \frac{\overline{a\index{i}}|𝜎\index{a\index{i}}} }"/>
-          <span>where σ<sub>x</sub> is the standard deviation of all the domains, and ā and σ<sub>a<sub>i</sub></sub> are the mean and the standard deviation of the size of neighboring domains of i<sup>th</sup> domain, respectively.<span className="asterisk"> *</span></span>
+          <span>where σ<sub>x</sub> is the standard deviation of all the domains, and ā and σ<sub>a<sub>i</sub></sub> are the mean and the standard deviation of the size of neighboring domains of i<sup>th</sup> domain, respectively.<span className="asterisk"> *</span> If a domain has only one finite neighbor, in which case σ<sub>a<sub>i</sub></sub> becomes 0, forcing the coefficient to then asymptotically become 0, σ<sub>a<sub>i</sub></sub> is set to the previous non-zero σ<sub>a<sub>i</sub></sub>. If there is no such value, it is set to 1.</span>
         </li>
         <li>
           Check out the public <a target="_blank" rel="noreferrer" href="https://github.com/hein-j/voronoi-analyzer">Github repo</a>. Issues and pull requests welcome.
