@@ -44,7 +44,7 @@ function Information () {
           <span>where σ<sub>x</sub> is the standard deviation of all the domains, and ā and σ<sub>a<sub>i</sub></sub> are the mean and the standard deviation of the size of neighboring domains of i<sup>th</sup> domain, respectively.<span className="asterisk"> *</span></span>
         </li>
         <li>
-          Check out the open source <a target="_blank" rel="noreferrer" href="https://github.com/hein-j/voronoi-analyzer">Github repo</a>. Issues and pull requests welcome.
+          Check out the public <a target="_blank" rel="noreferrer" href="https://github.com/hein-j/voronoi-analyzer">Github repo</a>. Issues and pull requests welcome.
         </li>
       </ul>
       <h1>
