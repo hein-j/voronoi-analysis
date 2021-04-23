@@ -10,9 +10,11 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
   let skewnessBottomSigma = 0;
   
   // accumulators for coefficient
+  // we need separate totalArea and areas array for coefficient because we are filtering out domains with only one finite neighbor
   let coefficientSigma = 0;
+  let filTotalArea = 0;
+  let filAreas = [];
 
-  let previousNonZeroStdOfAreasOfNeighbors = 1;
   
   // calculate the sigmas
   for (let i=0; i < n; i++) {
@@ -24,6 +26,12 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
     // coefficient
     // find only neighbors with finite areas
     const neighbors = [...voronoi.neighbors(areasObjs[i].voronoiIndex)].filter((index) => isFinite[index] === true);
+    // if there is only 1 finite neighbor, do not factor into coefficient
+    if (neighbors.length <= 1) {
+      continue;
+    }
+    filTotalArea += areasObjs[i].area;
+    filAreas.push(areasObjs[i].area);
     let areasOfNeighbors = [];
     let totalAreaOfNeighbors = 0;
     neighbors.forEach((voronoiIndex) => {
@@ -33,11 +41,6 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
     })
     const avgAreaOfNeighbors = totalAreaOfNeighbors / neighbors.length;
     let stdOfAreasOfNeighbors = std(areasOfNeighbors);
-    // if there is only one finite neighbor
-    if (stdOfAreasOfNeighbors === 0) {
-      stdOfAreasOfNeighbors = previousNonZeroStdOfAreasOfNeighbors;
-    }
-    previousNonZeroStdOfAreasOfNeighbors = stdOfAreasOfNeighbors;
     coefficientSigma += (avgAreaOfNeighbors / stdOfAreasOfNeighbors);
   }
   
@@ -47,8 +50,11 @@ function findSkewnessAndCoefficient(areasInfo, voronoi, isFinite) {
   const skewness = skewnessNumerator / skewnessDenominator;
   
   // continue coefficient calculation
-  const coefficientNumerator = n * meanArea;
-  const coefficientDenominator = std(areas) * coefficientSigma;
+  if (filAreas.length === 1) {
+    return {skewness, coefficient: "error"}
+  }
+  const coefficientNumerator = filTotalArea;
+  const coefficientDenominator = std(filAreas) * coefficientSigma;
   const coefficient = coefficientNumerator / coefficientDenominator;
 
   return {

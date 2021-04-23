@@ -26,6 +26,9 @@ function App() {
       throw new Error('There are no finite cells to calculate areas for. Please try adding more coordinates.')
     }
     const {skewness, coefficient} = findSkewnessAndCoefficient(areasInfo, voronoi, isFinite);
+    if (coefficient === "error") {
+      throw new Error('There is only 1 finite area, so the clustering coefficient could not be calculated. Please try adding more coordinates.')
+    }
     return {
       positions: positions,
       apices: apices,
