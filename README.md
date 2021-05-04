@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+<h1 align="center">Voronoi Analyzer</h1>
+<p align="center"><b>
+  <a href="https://voronoianalyzer.com/" target="_blank" rel="noreferrer">View App</a></b>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- ABOUT THE PROJECT -->
+## About
+Welcome to Voronoi Analyzer, an app that generates the <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank" rel="noreferrer">Voronoi diagram</a> of a given set of coordinates and performs statistical analysis on the areas of the resulting polygons. You can use it, for instance, to examine the density of cells, nuclei, etc. in micrographs. It is not, however, intended to substitute the likes of MATLAB.
 
-## Available Scripts
 
-In the project directory, you can run:
+### Built With
 
-### `npm start`
+* [D3.js](https://d3js.org/)
+* [React](https://reactjs.org/)
+* [Sass](https://sass-lang.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- USAGE EXAMPLES -->
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For instructions and information, click on the question-mark button in the footer of the <a href="https://voronoianalyzer.com/" target="_blank" rel="noreferrer">app</a>.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- CONTRIBUTING -->
+## Contributing
 
-### `npm run build`
+Issues & pull requests are most welcome. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- LICENSE -->
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Distributed under the MIT License. See <a href="https://github.com/hein-j/voronoi-analyzer/blob/main/LICENSE.txt">License</a> for more information.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+<ul>
+  <li>
+  The formulae for skewness and coefficient come from <a target="_blank" rel="noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/26977812/">this open-access publication</a> in ophthalmology.
+  </li>
+  <li>
+  More citations can be found as comments in the source code.
+  </li>
+</ul>
