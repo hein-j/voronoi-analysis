@@ -1,7 +1,11 @@
 <h1 align="center">Voronoi Analyzer</h1>
-<p align="center"><b>
-  <a href="https://voronoianalyzer.com/" target="_blank" rel="noreferrer">View App</a></b>
-</p>
+
+<a href="https://voronoianalyzer.com/" target="_blank" rel="noreferrer">
+  <p align="center">
+    <b>View App</b>
+  </p>
+  <img src="https://github.com/hein-j/voronoi-analyzer/blob/main/docs/screenshot.png?raw=true" alt="preview">
+</a>
 
 <!-- ABOUT THE PROJECT -->
 ## About
