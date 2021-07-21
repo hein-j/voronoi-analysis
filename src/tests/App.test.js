@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from '../App';
 import userEvent from '@testing-library/user-event';
-import Downloads from '../downloads/Downloads';
+import positionsObj from './positionsObj';
+import renderer from 'react-test-renderer';
+import Diagram from '../diagram/Diagram';
+import Graph from '../graph/Graph';
+import Calculations from '../calculations/Calculations';
 
 jest.mock('../downloads/Downloads', () => {return function DummyDownloads(props) {
   return (
@@ -59,7 +63,29 @@ describe('App', () => {
     screen.getByText('Usage');
   });
 
+  test('visualizations change correctly on example upload', () => {
 
-  
+    render(<App />);
 
-})
+    const diagram = renderer
+      .create(<Diagram positions={positionsObj.positions} apices={positionsObj.apices}/>)
+      .toJSON();
+      expect(diagram).toMatchSnapshot();
+
+    const graph = renderer
+      .create(<Graph areas={positionsObj.areas} />)
+      .toJSON();
+      expect(graph).toMatchSnapshot();
+
+    const skewness = renderer
+      .create(<Calculations name={"Skewness"} value={positionsObj.skewness} />)
+      .toJSON();
+      expect(skewness).toMatchSnapshot();
+    
+    const coefficient = renderer
+      .create(<Calculations name={"Coefficient"} value={positionsObj.coefficient} />)
+      .toJSON();
+      expect(coefficient).toMatchSnapshot();
+  });
+
+});
