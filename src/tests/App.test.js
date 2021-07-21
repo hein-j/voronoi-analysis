@@ -1,8 +1,23 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import App from '../App';
 
-test('renders learn react link', () => {
+
+test('mounts with correct components', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  screen.getByTitle('histogram');
+
+  screen.getByTitle('diagram');
+
+  screen.getByText('Skewness');
+
+  screen.getByText('Coefficient');
+
+  const calculations = screen.getAllByText((content, element) => {
+    return element.tagName.toLowerCase() === 'span' && content.includes('.')
+  });
+
+  expect(calculations.length).toBe(2);
 });
+
+

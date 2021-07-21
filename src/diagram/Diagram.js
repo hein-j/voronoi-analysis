@@ -57,6 +57,7 @@ function Diagram (props) {
     const svg = d3.select(".diagram-container")
     .append("svg")
       .attr("viewBox", [0, 0, width, height])
+      .attr("title", "diagram")
       .attr("stroke-width", 2);
     
     let voronoi = d3.Delaunay

@@ -67,6 +67,7 @@ function Graph (props) {
     const svg = d3.select(".graph-container")
       .append("svg")
         .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+        .attr("title", "histogram")
         //.attr("preserveAspectRatio", "xMinYMin meet")
       .append("g")
         .attr("transform",
